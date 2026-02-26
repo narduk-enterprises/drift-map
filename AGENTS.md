@@ -227,16 +227,16 @@ All template derivatives should utilize **Doppler Cross-Project Secret Referenci
 
 **Steps:**
 
-1. **PostHog:** Already wired — `app/plugins/posthog.client.ts` reads `POSTHOG_PUBLIC_KEY` from runtimeConfig. Set the key in Doppler.
+1. **PostHog:** Already wired — `app/plugins/posthog.client.ts` reads `POSTHOG_PUBLIC_KEY` from runtimeConfig. Set the key via Doppler reference from `narduk-analytics` (no new project is created; apps differentiate via the `app` event property automatically injected by the plugin).
 2. **GA4:** Already wired — `app/plugins/gtag.client.ts` reads `GA_MEASUREMENT_ID`. Set in Doppler.
 3. **IndexNow:** Already wired — `server/routes/[key].txt.ts` + `server/api/indexnow/submit.post.ts`. Set `INDEXNOW_KEY` in Doppler.
 4. **Google Search Console:** Use the setup automation in the examples repo.
 
 All plugins **no-op gracefully** when their keys are empty — safe for dev without any Doppler config.
 
-**Automated setup:** The examples repo includes `tools/setup-analytics.ts` which bootstraps all four services via API. See `nuxt-v4-template-examples/AGENT_ANALYTICS.md` for the full guide.
+**Automated setup:** The examples repo includes `tools/setup-analytics.ts` which bootstraps GA4 and GSC via API.
 
-**Doppler architecture:** Universal management keys live in the `narduk-analytics` Doppler project. Per-app keys go in the app's own Doppler project.
+**Doppler architecture:** Universal management keys live in the `narduk-analytics` Doppler project. Per-app keys go in the app's own Doppler project. You must reference the exact `POSTHOG_PUBLIC_KEY` from the analytics hub.
 
 ---
 

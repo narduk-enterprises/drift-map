@@ -21,7 +21,7 @@
     "@nuxt/eslint": "^1.15.2",
     "@nuxt/fonts": "^0.14.0",
     "@nuxt/image": "^2.0.0",
-    "@nuxt/ui": "^4.5.0",
+    "@nuxt/ui": "4.4.0",
     "@nuxtjs/seo": "^3.4.0",
     "drizzle-orm": "^0.45.1",
     "jose": "^6.1.3",

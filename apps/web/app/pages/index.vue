@@ -3,6 +3,10 @@ useSeo({
   title: 'Welcome to the Nuxt 4 Template',
   description: 'Your scalable foundation for everything.',
 })
+useWebPageSchema({
+  name: 'Welcome to the Nuxt 4 Template',
+  description: 'Your scalable foundation for everything.',
+})
 </script>
 
 <template>

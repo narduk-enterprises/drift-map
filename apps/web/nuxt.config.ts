@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   // Point to the new local Layer
   extends: ['../../layers/narduk-nuxt-layer'],
 
+  future: {
+    compatibilityVersion: 4
+  },
+
+  css: ['~/assets/css/main.css'],
+
   runtimeConfig: {
     // Server-only (admin API routes)
     googleServiceAccountKey: process.env.GSC_SERVICE_ACCOUNT_JSON || '',

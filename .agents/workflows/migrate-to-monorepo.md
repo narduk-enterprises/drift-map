@@ -50,7 +50,7 @@ All migration work happens in `/tmp` to keep `~/code` clean.
 
 ## Phase 1: Inventory the Source Repo
 
-Before moving ANY files, audit the source repo (`~/code/<source>`) to categorize every file.
+Before moving ANY files, audit the source repo (`/tmp/<source>`) to categorize every file.
 
 ### 1a. Files That the Layer Already Provides (DELETE / DO NOT COPY)
 
@@ -126,6 +126,7 @@ Execute commands to selectively copy code from the old repo to the new `apps/web
    - Extract **only the app-specific CSS** (custom keyframes, component styles, game/app-specific classes) into a new `apps/web/app/assets/css/main.css`.
    - Add `css: ['~/assets/css/main.css']` to `apps/web/nuxt.config.ts` to load the app-specific styles.
    - **Do NOT** duplicate the tailwind/nuxt-ui imports or `@theme` block — the layer handles those.
+   - **⚠️ CSS `@import` ordering:** If the app-specific CSS has `@import` statements (e.g., Google Fonts), they MUST come before all other rules. PostCSS will warn otherwise. Prefer putting font `@import` into `app.vue`'s `<style>` block or the `app.head.link` config instead.
 
 3. **Automate App-Specific `app.vue` merge:**
    - The template's `app.vue` uses this canonical structure — **do not delete it**:
@@ -159,10 +160,10 @@ Execute commands to selectively copy code from the old repo to the new `apps/web
 ### 3a. `apps/web/nuxt.config.ts`
 
 The new `nuxt.config.ts` must be **slim**.
-**DELETE overrrides** already handled by the layer:
+**DELETE overrides** already handled by the layer:
 
 - `modules` array (unless strictly app-specific)
-- `css`, `devtools`, `ui`, `colorMode`
+- `devtools`, `ui`, `colorMode`
 - `nitro.preset`, `nitro.esbuild`, `nitro.externals`, `nitro.rollupConfig`
 - `image.provider`, `ogImage.defaults`
 - `compatibilityDate`, `future.compatibilityVersion`
@@ -170,10 +171,14 @@ The new `nuxt.config.ts` must be **slim**.
 **KEEP ONLY:**
 
 - `extends: ['../../layers/narduk-nuxt-layer']`
+- `css: ['~/assets/css/main.css']` (if app has custom styles)
+- `routeRules` (e.g., `{ '/': { ssr: false } }` for game/SPA pages)
 - `runtimeConfig` (app-specific env vars)
 - `site` (metadata), `schemaOrg.identity`, `image.cloudflare.baseURL`
-- `app.head` (meta tags, favicons)
+- `app.head` (meta tags, favicons — **verify all linked files exist in `public/`**)
 - `sitemap` exclusions, `robots` rules
+
+> **⚠️ Head link validation:** After merging `app.head`, verify every `link[href]` (manifest, favicon, apple-touch-icon) actually exists in `apps/web/public/`. Dead references cause 404s at runtime.
 
 ### 3b. `apps/web/package.json`
 
@@ -254,10 +259,20 @@ Add any `r2_buckets` bindings if the source app had them.
    pnpm run build:plugins
    ```
 2. Run quality checks:
+
    ```bash
    pnpm run quality
    ```
+
    _Fix any lint or type errors until this passes cleanly._
+
+   **Common lint fixes during migration:**
+   - `vue-official/no-setup-top-level-side-effects`: Move `setInterval`, `setTimeout`, or any side effects in `<script setup>` into `onMounted()`
+   - `unicorn/prefer-number-properties`: Replace `parseFloat()` → `Number.parseFloat()`, `parseInt()` → `Number.parseInt()`
+   - `unicorn/no-lonely-if`: Flatten nested `if` blocks into combined conditions with `&&`
+   - `zod` import errors: `zod` is provided by the template — use `import { z } from 'zod'` (standard import, not `zod/v4`)
+   - Duplicated auto-imports: If Nuxt warns about duplicated imports (e.g., `requireAdmin`), delete the app-level file — the layer's version takes priority
+
 3. Start the dev server:
    ```bash
    pnpm run dev
@@ -306,16 +321,24 @@ Once the migration is fully verified and the new monorepo app is working as expe
    mv /tmp/<project-name>-v2 ~/code/<project-name>
    ```
 
-2. **Final Quality Review:**
+2. **Set up the git remote and push:**
 
    ```bash
    cd ~/code/<project-name>
+   git remote add origin https://github.com/loganrenz/<project-name>.git
+   git branch -M main
+   git push -u origin main --force
+   ```
+
+3. **Final Quality Review:**
+
+   ```bash
    pnpm run quality
    ```
 
    _Take a moment to perform one final, thorough review of the app to ensure everything functions perfectly in its new location._
 
-3. **Clean up /tmp:**
+4. **Clean up /tmp:**
    ```bash
    rm -rf /tmp/<source>
    ```

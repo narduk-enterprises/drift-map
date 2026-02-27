@@ -55,15 +55,15 @@ watch(route, () => {
           <div class="flex items-center gap-2">
             <USwitch
               v-model="isDark"
-              on-icon="i-lucide-moon"
-              off-icon="i-lucide-sun"
+              checked-icon="i-lucide-moon"
+              unchecked-icon="i-lucide-sun"
               size="lg"
             />
 
             <!-- Mobile hamburger -->
-            <button class="md:hidden p-2 rounded-lg hover:bg-elevated" @click="mobileMenuOpen = !mobileMenuOpen">
+            <UButton color="neutral" variant="ghost" class="md:hidden p-2 rounded-lg hover:bg-elevated" @click="mobileMenuOpen = !mobileMenuOpen">
               <UIcon :name="mobileMenuOpen ? 'i-lucide-x' : 'i-lucide-menu'" class="size-5" />
-            </button>
+            </UButton>
           </div>
         </div>
 

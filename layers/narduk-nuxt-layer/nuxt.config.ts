@@ -1,4 +1,10 @@
+import { fileURLToPath } from 'node:url'
+
 export default defineNuxtConfig({
+  alias: {
+    '#layer': fileURLToPath(new URL('./', import.meta.url))
+  },
+
   modules: [
     '@nuxt/ui',
     '@nuxt/fonts',
@@ -28,6 +34,22 @@ export default defineNuxtConfig({
     },
   },
   
+  image: {
+    provider: 'cloudflare',
+  },
+
+  nitro: {
+    preset: 'cloudflare-module',
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    },
+    externals: {
+      inline: ['drizzle-orm']
+    },
+  },
+
   // Expose the layer configurations and files to consumers
   components: [
     { path: '~/components', pathPrefix: false }

@@ -1,4 +1,3 @@
-/// <reference types="node" />
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // Extend the Workspace Nuxt Layer
@@ -40,21 +39,8 @@ export default defineNuxtConfig({
   },
 
   image: {
-    provider: 'cloudflare',
     cloudflare: {
       baseURL: process.env.SITE_URL || 'https://nuxt-v4-template.workers.dev',
-    },
-  },
-
-  nitro: {
-    preset: 'cloudflare-module',
-    esbuild: {
-      options: {
-        target: 'esnext'
-      }
-    },
-    externals: {
-      inline: ['drizzle-orm']
     },
   },
 })

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-useSeoMeta({
+useSeo({
   title: 'Welcome to the Nuxt 4 Template',
-  description: 'Your scalable foundation for everything.'
+  description: 'Your scalable foundation for everything.',
 })
 </script>
 

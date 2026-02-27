@@ -4,9 +4,12 @@
   "scripts": {
     "dev": "pnpm -r --filter web dev",
     "build": "pnpm -r build",
+    "build:plugins": "pnpm --filter @narduk/eslint-config build",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck",
-    "quality": "pnpm -r quality"
+    "quality": "pnpm -r quality",
+    "init": "jiti tools/init.ts",
+    "validate": "jiti tools/validate.ts"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

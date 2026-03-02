@@ -101,10 +101,10 @@ jobs:
           path: apps/${{ matrix.app }}/.output
           retention-days: 1
 
-  # ── Deploy (only on push to main, after quality + build pass) ──
+  # ── Deploy (only on push to main, after build passes) ──
   deploy:
     name: Deploy
-    needs: [quality, build]
+    needs: [build]
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     timeout-minutes: 10

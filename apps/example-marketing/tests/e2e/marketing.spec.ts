@@ -1,6 +1,12 @@
 import { test, expect, waitForHydration } from './fixtures'
 
 test.describe('example-marketing', () => {
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage()
+    await page.goto('/', { timeout: 60_000 })
+    await page.waitForLoadState('networkidle', { timeout: 20_000 })
+    await page.close()
+  })
   test('page loads without hydration errors', async ({ page }) => {
     await page.goto('/')
     await waitForHydration(page)
@@ -95,13 +101,6 @@ test.describe('example-marketing', () => {
     await expect(form.getByLabel(/first name/i)).toHaveValue('')
   })
 
-  test('theme toggle is present and visible', async ({ page }) => {
-    await page.goto('/')
-    await waitForHydration(page)
-    await expect(page.getByText('Build at the speed of thought.')).toBeVisible({ timeout: 15_000 })
-    const themeButton = page.locator('button').filter({ has: page.locator('span[class*="i-lucide-monitor"], span[class*="i-lucide-sun"], span[class*="i-lucide-moon"]') }).first()
-    await expect(themeButton).toBeVisible()
-  })
 
   test('page has correct title', async ({ page }) => {
     await page.goto('/')

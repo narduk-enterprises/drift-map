@@ -1,6 +1,12 @@
 import { test, expect } from './fixtures'
 
 test.describe('example-apple-maps', () => {
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage()
+    await page.goto('/', { timeout: 60_000 })
+    await page.waitForLoadState('networkidle', { timeout: 20_000 })
+    await page.close()
+  })
   test('page loads and shows header', async ({ page }) => {
     await page.goto('/')
     await expect(

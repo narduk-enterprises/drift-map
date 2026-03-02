@@ -36,18 +36,18 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      appUrl: 'https://showcase.narduk-nuxt-template.workers.dev',
+      appUrl: 'https://showcase.narduk.workers.dev',
       appName: 'Nuxt 4 Showcase',
-      exampleAuthUrl: 'https://example-auth.narduk-nuxt-template.workers.dev',
-      exampleBlogUrl: 'https://example-blog.narduk-nuxt-template.workers.dev',
-      exampleMarketingUrl: 'https://example-marketing.narduk-nuxt-template.workers.dev',
-      exampleOgImageUrl: 'https://example-og-image.narduk-nuxt-template.workers.dev',
-      exampleAppleMapsUrl: 'https://example-apple-maps.narduk-nuxt-template.workers.dev',
+      exampleAuthUrl: 'https://example-auth.narduk.workers.dev',
+      exampleBlogUrl: 'https://example-blog.narduk.workers.dev',
+      exampleMarketingUrl: 'https://example-marketing.narduk.workers.dev',
+      exampleOgImageUrl: 'https://example-og-image.narduk.workers.dev',
+      exampleAppleMapsUrl: 'https://example-apple-maps.narduk.workers.dev',
     },
   },
 
   site: {
-    url: process.env.SITE_URL || 'https://showcase.narduk-nuxt-template.workers.dev',
+    url: process.env.SITE_URL || 'https://showcase.narduk.workers.dev',
     name: 'Nuxt 4 Showcase',
     description: 'Interactive examples showcasing Nuxt 4 + Nuxt UI 4 + Cloudflare Workers patterns.',
     defaultLocale: 'en',
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
     identity: {
       type: 'Organization',
       name: 'Nuxt 4 Showcase',
-      url: process.env.SITE_URL || 'https://showcase.narduk-nuxt-template.workers.dev',
+      url: process.env.SITE_URL || 'https://showcase.narduk.workers.dev',
       logo: '/favicon.svg',
     },
   },

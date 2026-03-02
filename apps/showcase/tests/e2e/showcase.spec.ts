@@ -1,6 +1,12 @@
 import { test, expect, waitForHydration } from './fixtures'
 
 test.describe('showcase', () => {
+  test.beforeAll(async ({ browser }) => {
+    const page = await browser.newPage()
+    await page.goto('/', { timeout: 60_000 })
+    await page.waitForLoadState('networkidle', { timeout: 20_000 })
+    await page.close()
+  })
   test('page loads without hydration errors', async ({ page }) => {
     await page.goto('/')
     await expect(page.getByRole('heading', { name: /Nuxt 4 Showcase/i })).toBeVisible()

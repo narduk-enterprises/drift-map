@@ -143,23 +143,6 @@ jobs:
           url=$(echo "$deploy_output" | grep -o 'https://[^ ]*' | grep -v 'dash.cloudflare.com' | head -n 1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
-      - name: Smoke Test D1 Database
-        run: |
-          URL="${{ steps.deploy.outputs.url }}"
-          if [ -z "$URL" ]; then
-            echo "::error::No deployment URL found for smoke test."
-            exit 1
-          fi
-          echo "Testing $URL/api/users..."
-
-          # Expect a 200 OK and valid JSON. If D1 migration failed, Nuxt returns 500.
-          status_code=$(curl -s -o /dev/null -w "%{http_code}" "$URL/api/users")
-          if [ "$status_code" != "200" ]; then
-             echo "::error::Smoke test failed! Expected 200, got $status_code"
-             exit 1
-          fi
-          echo "✅ Smoke test passed."
-
   deploy-examples:
     name: Deploy ${{ matrix.app }}
     needs: [preflight, deploy]

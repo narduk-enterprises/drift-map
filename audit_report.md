@@ -6,7 +6,7 @@ Date audited: March 2-3, 2026
 
 No.
 
-The command completed without crashing, but it reported `No changes to the environment were made.` and did not fully finish the expected rename pass. After setup, `apps/web` still contained template metadata and placeholder code (for example, the stock homepage and the sample `/api/users` route were still present, and app identity strings still needed manual cleanup). The git remote was already safe (`https://github.com/loganrenz/drift-map.git`), so there was no template-push risk, but the setup script did not leave the app in a fully "ready to build" renamed state.
+The command completed without crashing, but it reported `No changes to the environment were made.` and did not fully finish the expected rename pass. After setup, `apps/web` still contained template metadata and placeholder code (for example, the stock homepage and the sample `/api/users` route were still present, and app identity strings still needed manual cleanup). The git remote was already safe (`https://github.com/narduk-enterprises/drift-map.git`), so there was no template-push risk, but the setup script did not leave the app in a fully "ready to build" renamed state.
 
 ## 2. Did Drizzle migration and `nitro-cloudflare-dev` binding work out of the box?
 

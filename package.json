@@ -15,6 +15,7 @@
     "setup": "npx tsx tools/init.ts",
     "update-layer": "npx tsx tools/update-layer.ts",
     "validate": "doppler run -- npx tsx tools/validate.ts",
+    "export:doppler-keys": "npx tsx tools/export-doppler-keys.ts",
     "clean": "find . -type d \\( -name node_modules -o -name .nuxt -o -name .output -o -name .nitro -o -name .wrangler -o -name .turbo -o -name .data -o -name dist \\) -not -path './.git/*' -prune -exec rm -rf {} +",
     "clean:install": "pnpm run clean && pnpm install && pnpm run db:ready:all",
     "db:migrate": "pnpm --filter web run db:migrate",
@@ -38,7 +39,10 @@
     "test:e2e:showcase": "pnpm --filter showcase test:e2e",
     "dev:apple-maps": "pnpm --filter example-apple-maps dev",
     "test:e2e:apple-maps": "pnpm --filter example-apple-maps test:e2e",
-    "generate:favicons": "npx tsx tools/generate-favicons.ts"
+    "generate:favicons": "npx tsx tools/generate-favicons.ts",
+    "predev": "node tools/check-setup.js",
+    "prebuild": "node tools/check-setup.js",
+    "predeploy": "node tools/check-setup.js"
   },
   "pnpm": {
     "overrides": {
@@ -66,6 +70,7 @@
     "@types/node": "^22.19.13",
     "concurrently": "^9.2.1",
     "sharp": "^0.34.5",
-    "turbo": "^2.8.12"
+    "turbo": "^2.8.12",
+    "tsx": "^4.21.0"
   }
 }

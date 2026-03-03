@@ -10,6 +10,7 @@ These are **Node.js automation scripts** that run locally or in CI. They are **N
 | ---------------------- | --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | `init.ts`              | Transforms a fresh template clone into a ready-to-deploy app (renames, provisions D1, Doppler, analytics) | `pnpm init -- --name="..." --display="..." --url="..."` |
 | `validate.ts`          | Confirms infrastructure is correctly provisioned (D1, Doppler, GitHub secrets)                            | `pnpm run validate`                                     |
+| `export-doppler-keys.ts` | Exports a JSON inventory of Doppler secret names across every project/config into `~/Downloads`         | `pnpm run export:doppler-keys`                          |
 | `generate-favicons.ts` | Generates all favicon variants (apple-touch-icon, ico, PNG, webmanifest) from a source SVG                | `pnpm generate:favicons`                                |
 | `setup-analytics.ts`   | Bootstraps GA4, Google Search Console, and IndexNow                                                       | Called by `init.ts` or run directly                     |
 | `gsc-toolbox.ts`       | Google Search Console API utilities                                                                       | Used by `setup-analytics.ts`                            |

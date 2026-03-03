@@ -8,7 +8,7 @@
     "dev": "nuxt dev",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "db:migrate": "for file in drizzle/*.sql; do wrangler d1 execute drift-map-db --local --file=\"$file\"; done",
+    "db:migrate": "sh ./scripts/db-migrate.sh --local",
     "db:seed": "wrangler d1 execute drift-map-db --local --file=node_modules/@loganrenz/narduk-nuxt-template-layer/drizzle/seed.sql",
     "db:studio": "drizzle-kit studio",
     "generate": "nuxt generate",

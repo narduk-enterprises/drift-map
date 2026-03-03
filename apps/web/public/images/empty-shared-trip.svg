@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" fill="none">
+  <rect width="640" height="420" rx="40" fill="rgb(248 250 252)" />
+  <circle cx="488" cy="118" r="84" fill="rgb(45 212 191 / 0.18)" />
+  <path d="M144 320c98-136 236-214 356-194 20 4 38 8 56 16" stroke="rgb(15 118 110 / 0.18)" stroke-width="8" />
+  <path d="M146 320c54-12 100-40 148-82 50-42 100-86 176-118" stroke="rgb(8 145 178 / 0.22)" stroke-linecap="round" stroke-width="10" />
+  <g filter="drop-shadow(0 10px 24px rgb(15 23 42 / 0.12))">
+    <rect x="152" y="104" width="264" height="196" rx="28" fill="rgb(255 255 255)" />
+    <rect x="184" y="140" width="120" height="16" rx="8" fill="rgb(214 211 209)" />
+    <rect x="184" y="176" width="184" height="16" rx="8" fill="rgb(231 229 228)" />
+    <rect x="184" y="212" width="148" height="16" rx="8" fill="rgb(231 229 228)" />
+    <path d="M328 116c0 70-84 128-84 128s-84-58-84-128c0-46 38-84 84-84s84 38 84 84Z" fill="rgb(13 148 136)" opacity=".96" />
+    <circle cx="244" cy="116" r="30" fill="rgb(240 253 250)" />
+    <path d="m230 116 10 10 18-20" stroke="rgb(15 118 110)" stroke-linecap="round" stroke-linejoin="round" stroke-width="8" />
+  </g>
+</svg>

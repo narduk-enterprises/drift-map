@@ -27,6 +27,7 @@ logs
 
 # Build artifacts
 *.bak
+**/drizzle/*.sqlite
 
 # Test artifacts
 playwright-report/

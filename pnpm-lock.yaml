@@ -310,6 +310,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@drift-map/db':
+        specifier: workspace:*
+        version: link:../../packages/db
       '@loganrenz/narduk-nuxt-template-layer':
         specifier: workspace:*
         version: link:../../layers/narduk-nuxt-layer
@@ -326,9 +329,15 @@ importers:
         specifier: ^4.3.6
         version: 4.3.6
     devDependencies:
+      '@iconify-json/lucide':
+        specifier: ^1.2.94
+        version: 1.2.94
       '@tailwindcss/vite':
         specifier: ^4.0.0
         version: 4.2.1(vite@7.3.1(@types/node@22.19.13)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))
+      drizzle-kit:
+        specifier: ^0.31.9
+        version: 0.31.9
       eslint:
         specifier: ^10.0.2
         version: 10.0.2(jiti@2.6.1)
@@ -444,6 +453,12 @@ importers:
       wrangler:
         specifier: ^4.20.0
         version: 4.69.0(@cloudflare/workers-types@4.20260226.1)
+
+  packages/db:
+    dependencies:
+      drizzle-orm:
+        specifier: ^0.45.1
+        version: 0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)
 
   packages/eslint-config:
     dependencies:
@@ -8473,7 +8488,7 @@ snapshots:
       c12: 3.3.3(magicast@0.5.2)
       chokidar: 5.0.0
       consola: 3.4.2
-      db0: 0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
+      db0: 0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
       defu: 6.1.4
       destr: 2.0.5
       git-url-parse: 16.1.0
@@ -8675,7 +8690,7 @@ snapshots:
       ufo: 1.6.3
       unifont: 0.7.4
       unplugin: 3.0.0
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -8824,7 +8839,7 @@ snapshots:
       impound: 1.0.0
       klona: 2.0.6
       mocked-exports: 0.1.1
-      nitropack: 2.13.1(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
+      nitropack: 2.13.1(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
       nuxt: 4.3.1(@parcel/watcher@2.5.6)(@types/node@22.19.13)(@vue/compiler-sfc@3.5.29)(better-sqlite3@11.10.0)(cac@6.7.14)(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))(eslint@10.0.2(jiti@2.6.1))(ioredis@5.10.0)(lightningcss@1.31.1)(magicast@0.5.2)(optionator@0.9.4)(rollup@4.59.0)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.13)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue-tsc@3.2.5(typescript@5.9.3))(yaml@2.8.2)
       ohash: 2.0.11
       pathe: 2.0.3
@@ -8833,7 +8848,7 @@ snapshots:
       std-env: 3.10.0
       ufo: 1.6.3
       unctx: 2.5.0
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
       vue: 3.5.29(typescript@5.9.3)
       vue-bundle-renderer: 2.2.0
       vue-devtools-stub: 0.1.0
@@ -8889,7 +8904,7 @@ snapshots:
       impound: 1.0.0
       klona: 2.0.6
       mocked-exports: 0.1.1
-      nitropack: 2.13.1(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
+      nitropack: 2.13.1(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
       nuxt: 4.3.1(@parcel/watcher@2.5.6)(@types/node@22.19.13)(@vue/compiler-sfc@3.5.29)(better-sqlite3@11.10.0)(cac@6.7.14)(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))(eslint@10.0.2(jiti@2.6.1))(ioredis@5.10.0)(lightningcss@1.31.1)(magicast@0.5.2)(optionator@0.9.4)(rollup@4.59.0)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@22.19.13)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue-tsc@3.2.5(typescript@5.9.3))(yaml@2.8.2)
       ohash: 2.0.11
       pathe: 2.0.3
@@ -8898,7 +8913,7 @@ snapshots:
       std-env: 3.10.0
       ufo: 1.6.3
       unctx: 2.5.0
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
       vue: 3.5.29(typescript@5.9.3)
       vue-bundle-renderer: 2.2.0
       vue-devtools-stub: 0.1.0
@@ -11505,7 +11520,7 @@ snapshots:
 
   culori@4.0.2: {}
 
-  db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)):
+  db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)):
     optionalDependencies:
       better-sqlite3: 11.10.0
       drizzle-orm: 0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)
@@ -12148,7 +12163,7 @@ snapshots:
       pathe: 2.0.3
       ufo: 1.6.3
       unifont: 0.7.4
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
     optionalDependencies:
       vite: 7.3.1(@types/node@22.19.13)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
     transitivePeerDependencies:
@@ -12592,7 +12607,7 @@ snapshots:
       sharp: 0.34.5
       svgo: 4.0.0
       ufo: 1.6.3
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
       xss: 1.0.15
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -13416,7 +13431,7 @@ snapshots:
       mlly: 1.8.0
       pkg-types: 2.3.0
 
-  nitropack@2.13.1(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)):
+  nitropack@2.13.1(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.2
       '@rollup/plugin-alias': 6.0.0(rollup@4.59.0)
@@ -13437,7 +13452,7 @@ snapshots:
       cookie-es: 2.0.0
       croner: 9.1.0
       crossws: 0.3.5
-      db0: 0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
+      db0: 0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
       defu: 6.1.4
       destr: 2.0.5
       dot-prop: 10.1.0
@@ -13483,7 +13498,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       unimport: 5.7.0
       unplugin-utils: 0.3.1
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
       untyped: 2.0.0
       unwasm: 0.5.3
       youch: 4.1.0
@@ -13617,7 +13632,7 @@ snapshots:
       std-env: 3.10.0
       ufo: 1.6.3
       ultrahtml: 1.6.0
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -13674,7 +13689,7 @@ snapshots:
       ufo: 1.6.3
       ultrahtml: 1.6.0
       unplugin: 3.0.0
-      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
+      unstorage: 1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0)
     optionalDependencies:
       '@resvg/resvg-js': 2.6.2
       '@resvg/resvg-wasm': 2.6.2
@@ -15705,7 +15720,7 @@ snapshots:
       '@unrs/resolver-binding-win32-ia32-msvc': 1.11.1
       '@unrs/resolver-binding-win32-x64-msvc': 1.11.1
 
-  unstorage@1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0):
+  unstorage@1.17.4(db0@0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0)))(ioredis@5.10.0):
     dependencies:
       anymatch: 3.1.3
       chokidar: 5.0.0
@@ -15716,7 +15731,7 @@ snapshots:
       ofetch: 1.5.1
       ufo: 1.6.3
     optionalDependencies:
-      db0: 0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
+      db0: 0.3.4(better-sqlite3@11.10.0)(drizzle-orm@0.45.1(@cloudflare/workers-types@4.20260226.1)(@opentelemetry/api@1.9.0)(better-sqlite3@11.10.0))
       ioredis: 5.10.0
 
   untun@0.1.3:

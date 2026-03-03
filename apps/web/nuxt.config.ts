@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     gaPropertyId: process.env.GA_PROPERTY_ID || '',
     posthogProjectId: process.env.POSTHOG_PROJECT_ID || '',
     public: {
-      appUrl: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+      appUrl: process.env.SITE_URL || 'https://drift-map.nard.uk',
       appName: process.env.APP_NAME || 'DriftMap',
       assetBaseUrl: process.env.ASSET_BASE_URL || '',
       // Analytics
@@ -42,7 +42,7 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+    url: process.env.SITE_URL || 'https://drift-map.nard.uk',
     name: 'DriftMap',
     description: 'Plan collaborative trips with day-by-day stops, notes, photos, and polished public share pages.',
     defaultLocale: 'en',
@@ -52,14 +52,14 @@ export default defineNuxtConfig({
     identity: {
       type: 'Organization',
       name: 'DriftMap',
-      url: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+      url: process.env.SITE_URL || 'https://drift-map.nard.uk',
       logo: '/favicon.svg',
     },
   },
 
   image: {
     cloudflare: {
-      baseURL: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+      baseURL: process.env.SITE_URL || 'https://drift-map.nard.uk',
     },
   },
 

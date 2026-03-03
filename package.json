@@ -40,9 +40,9 @@
     "dev:apple-maps": "pnpm --filter example-apple-maps dev",
     "test:e2e:apple-maps": "pnpm --filter example-apple-maps test:e2e",
     "generate:favicons": "npx tsx tools/generate-favicons.ts",
-    "predev": "node tools/check-setup.js",
-    "prebuild": "node tools/check-setup.js",
-    "predeploy": "node tools/check-setup.js"
+    "predev": "node tools/check-setup.cjs",
+    "prebuild": "node tools/check-setup.cjs",
+    "predeploy": "node tools/check-setup.cjs"
   },
   "pnpm": {
     "overrides": {

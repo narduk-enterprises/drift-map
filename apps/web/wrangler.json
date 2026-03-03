@@ -1,5 +1,5 @@
 {
-  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/schemas/config/wrangler.json",
   "name": "drift-map",
   "main": ".output/server/index.mjs",
   "assets": {
@@ -23,5 +23,8 @@
       "bucket_name": "drift-map-assets",
       "preview_bucket_name": "drift-map-assets-preview"
     }
+  ],
+  "routes": [
+    { "pattern": "drift-map.nard.uk", "custom_domain": true }
   ]
 }

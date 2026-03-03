@@ -5,7 +5,7 @@
 
 const DEFAULT_LOCALE = 'en-US';
 
-export function formatCents(
+function formatCents(
   cents: number,
   options?: { locale?: string; currency?: string }
 ): string {
@@ -17,7 +17,7 @@ export function formatCents(
   }).format(cents / 100);
 }
 
-export function formatCurrency(
+function formatCurrency(
   amount: number,
   options?: { locale?: string; currency?: string }
 ): string {
@@ -29,7 +29,7 @@ export function formatCurrency(
   }).format(amount);
 }
 
-export function formatDate(
+function formatDate(
   date: Date | number | string,
   options?: { locale?: string; dateStyle?: 'short' | 'medium' | 'long' | 'full' }
 ): string {
@@ -40,7 +40,7 @@ export function formatDate(
   }).format(new Date(date));
 }
 
-export function formatDateTime(
+function formatDateTime(
   date: Date | number | string,
   options?: { locale?: string }
 ): string {
@@ -51,7 +51,7 @@ export function formatDateTime(
   }).format(new Date(date));
 }
 
-export function formatRelative(
+function formatRelative(
   date: Date | number | string,
   base?: Date
 ): string {
@@ -76,7 +76,7 @@ export function formatRelative(
   return rtf.format(diffYear, 'year');
 }
 
-export function formatNumber(
+function formatNumber(
   value: number,
   options?: { locale?: string; minimumFractionDigits?: number; maximumFractionDigits?: number }
 ): string {
@@ -87,7 +87,7 @@ export function formatNumber(
   }).format(value);
 }
 
-export function formatInteger(
+function formatInteger(
   value: number,
   options?: { locale?: string }
 ): string {
@@ -97,7 +97,7 @@ export function formatInteger(
   }).format(value);
 }
 
-export function formatPercent(
+function formatPercent(
   value: number,
   options?: { locale?: string; decimals?: number }
 ): string {
@@ -110,7 +110,7 @@ export function formatPercent(
   }).format(value);
 }
 
-export function formatCompact(
+function formatCompact(
   value: number,
   options?: { locale?: string }
 ): string {

@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
-  "name": "narduk-nuxt-template",
+  "name": "drift-map",
   "main": ".output/server/index.mjs",
   "assets": {
     "directory": ".output/public"
@@ -13,8 +13,15 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "narduk-nuxt-template-db",
+      "database_name": "drift-map-db",
       "database_id": "2176c867-da11-4328-a79a-852fa713ca9e"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "BUCKET",
+      "bucket_name": "drift-map-assets",
+      "preview_bucket_name": "drift-map-assets-preview"
     }
   ]
 }

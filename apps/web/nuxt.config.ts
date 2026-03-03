@@ -28,8 +28,9 @@ export default defineNuxtConfig({
     gaPropertyId: process.env.GA_PROPERTY_ID || '',
     posthogProjectId: process.env.POSTHOG_PROJECT_ID || '',
     public: {
-      appUrl: process.env.SITE_URL || 'https://narduk.workers.dev',
-      appName: process.env.APP_NAME || 'Nuxt 4 Demo',
+      appUrl: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+      appName: process.env.APP_NAME || 'DriftMap',
+      assetBaseUrl: process.env.ASSET_BASE_URL || '',
       // Analytics
       posthogPublicKey: process.env.POSTHOG_PUBLIC_KEY || '',
       posthogHost: process.env.POSTHOG_HOST || 'https://us.i.posthog.com',
@@ -41,24 +42,51 @@ export default defineNuxtConfig({
   },
 
   site: {
-    url: process.env.SITE_URL || 'https://narduk.workers.dev',
-    name: 'Nuxt 4 Demo',
-    description: 'A production-ready demo template showcasing Nuxt 4, Nuxt UI 4, Tailwind CSS 4, and Cloudflare Workers with D1 database.',
+    url: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+    name: 'DriftMap',
+    description: 'Plan collaborative trips with day-by-day stops, notes, photos, and polished public share pages.',
     defaultLocale: 'en',
   },
 
   schemaOrg: {
     identity: {
       type: 'Organization',
-      name: 'Nuxt 4 Demo',
-      url: process.env.SITE_URL || 'https://narduk.workers.dev',
+      name: 'DriftMap',
+      url: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
       logo: '/favicon.svg',
     },
   },
 
   image: {
     cloudflare: {
-      baseURL: process.env.SITE_URL || 'https://narduk.workers.dev',
+      baseURL: process.env.SITE_URL || 'https://drift-map.narduk.workers.dev',
+    },
+  },
+
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (!id.includes('node_modules/')) {
+              return
+            }
+
+            const packagePath = id.split('node_modules/').pop()
+            if (!packagePath) {
+              return 'vendor'
+            }
+
+            if (packagePath.startsWith('@nuxt/ui') || packagePath.includes('reka-ui')) {
+              return 'vendor-ui'
+            }
+
+            if (packagePath.includes('lucide')) {
+              return 'vendor-icons'
+            }
+          },
+        },
+      },
     },
   },
 })

@@ -3,9 +3,10 @@
  * Exported as plain functions for tree-shaking, and aliased in `useFormat()` for composable usage.
  */
 
+/* eslint-disable vue-official/require-use-prefix-for-composables */
 const DEFAULT_LOCALE = 'en-US';
 
-function formatCents(
+export function formatCents(
   cents: number,
   options?: { locale?: string; currency?: string }
 ): string {
@@ -17,7 +18,7 @@ function formatCents(
   }).format(cents / 100);
 }
 
-function formatCurrency(
+export function formatCurrency(
   amount: number,
   options?: { locale?: string; currency?: string }
 ): string {
@@ -29,7 +30,7 @@ function formatCurrency(
   }).format(amount);
 }
 
-function formatDate(
+export function formatDate(
   date: Date | number | string,
   options?: { locale?: string; dateStyle?: 'short' | 'medium' | 'long' | 'full' }
 ): string {
@@ -40,7 +41,7 @@ function formatDate(
   }).format(new Date(date));
 }
 
-function formatDateTime(
+export function formatDateTime(
   date: Date | number | string,
   options?: { locale?: string }
 ): string {
@@ -51,7 +52,7 @@ function formatDateTime(
   }).format(new Date(date));
 }
 
-function formatRelative(
+export function formatRelative(
   date: Date | number | string,
   base?: Date
 ): string {
@@ -76,7 +77,7 @@ function formatRelative(
   return rtf.format(diffYear, 'year');
 }
 
-function formatNumber(
+export function formatNumber(
   value: number,
   options?: { locale?: string; minimumFractionDigits?: number; maximumFractionDigits?: number }
 ): string {
@@ -87,7 +88,7 @@ function formatNumber(
   }).format(value);
 }
 
-function formatInteger(
+export function formatInteger(
   value: number,
   options?: { locale?: string }
 ): string {
@@ -97,7 +98,7 @@ function formatInteger(
   }).format(value);
 }
 
-function formatPercent(
+export function formatPercent(
   value: number,
   options?: { locale?: string; decimals?: number }
 ): string {
@@ -110,7 +111,7 @@ function formatPercent(
   }).format(value);
 }
 
-function formatCompact(
+export function formatCompact(
   value: number,
   options?: { locale?: string }
 ): string {

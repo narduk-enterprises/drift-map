@@ -22,6 +22,7 @@ const ruleTester = new RuleTester({
 ruleTester.run('no-composable-dom-access-without-client-guard', rule, {
   valid: [
     {
+      filename: 'test.vue',
       code: `
         export function useWindow() {
           if (import.meta.client) {
@@ -32,6 +33,7 @@ ruleTester.run('no-composable-dom-access-without-client-guard', rule, {
       filename: 'composables/useWindow.ts',
     },
     {
+      filename: 'test.vue',
       code: `
         export function useWindow() {
           onMounted(() => {
@@ -44,6 +46,7 @@ ruleTester.run('no-composable-dom-access-without-client-guard', rule, {
   ],
   invalid: [
     {
+      filename: 'test.vue',
       code: `
         export function useWindow() {
           window.something = true
